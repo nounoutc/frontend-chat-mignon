@@ -8,7 +8,7 @@ export default function LeaderboardPage() {
     const ITEMS_PER_PAGE = 5;
 
     useEffect(() => {
-        fetch("http://localhost:5000/api/cats")
+        fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/cats`)
             .then((res) => res.json())
             .then((data) => {
                 setCats(data);

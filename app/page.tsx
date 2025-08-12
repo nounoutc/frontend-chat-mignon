@@ -9,7 +9,7 @@ export default function HomePage() {
   const [pair, setPair] = useState<Cat[]>([]);
 
   useEffect(() => {
-    fetch("http://localhost:5000/api/cats")
+    fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/cats`)
       .then(res => res.json())
       .then((data) => {
         setCats(data);
@@ -27,7 +27,7 @@ export default function HomePage() {
   };
 
   const handleVote = (id: number) => {
-    fetch("http://localhost:5000/api/vote", {
+    fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/vote`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ winnerId: id })
