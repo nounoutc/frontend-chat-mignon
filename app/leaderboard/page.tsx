@@ -6,7 +6,7 @@ export default function LeaderboardPage() {
     const [cats, setCats] = useState<Cat[]>([]);
     const [currentPage, setCurrentPage] = useState(1);
     const ITEMS_PER_PAGE = 5;
-
+    console.log("************ env", process.env.NEXT_PUBLIC_BACKEND_URL)
     useEffect(() => {
         fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/cats`)
             .then((res) => res.json())
